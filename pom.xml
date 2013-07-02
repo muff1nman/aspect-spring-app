@@ -3,13 +3,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.andrewdemaria.music.web</groupId>
-    <artifactId>MusicProjectWebserver</artifactId>
+    <artifactId>MusicLibraryWebserver</artifactId>
     <packaging>war</packaging>
     <version>0.0.1</version>
     <name>MusicProjectWebserver Spring-WS Application</name>
     <url>http://www.springframework.org/spring-ws</url>
     <build>
-        <finalName>MusicProjectWebserver</finalName>
+        <finalName>MusicLibraryWebserver</finalName>
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
