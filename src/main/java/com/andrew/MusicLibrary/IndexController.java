@@ -2,6 +2,7 @@ package com.andrew.MusicLibrary;
 
 import java.io.IOException;
 import java.io.Writer;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.List;
@@ -13,6 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class IndexController {
@@ -89,5 +92,49 @@ public class IndexController {
 		w.close();
 		return null;
 		//return "/jsp/index";
+	}
+	
+	@RequestMapping("/pepboys_qa/cgi/csg")
+	public @ResponseBody String getStoreResults(Model model, HttpServletRequest request, HttpServletResponse response, @RequestParam(value = "USER_REMOTE_ADDR", required = true) String userRemoteAddr) throws Exception {
+		
+//		URL url = new URL("http://freegeoip.net/json/50.58.217.226");
+		
+		String results = "{" +
+			"\"statusCode\": \"0\", " +
+			"\"statusString\": \"Success\", " +
+			"\"count\": 2, " +
+			"\"locations\": " +
+				"[" +
+				"{\"KEY\":\"07980\", \"ADDR\":\"8000 Stream Walk Ln\", \"CITY\": \"Manassas\", \"STATE\":\"VA\", \"ZIP\": \"20109\"}, " +
+				"{\"KEY\":\"07922\", \"ADDR\":\"10275 North Fwy\", \"CITY\":\"Houston\", \"STATE\":\"TX\", \"ZIP\":\"77037\"} " +
+				"]" +
+			"}";
+		
+//		StoreSearchResult results = new StoreSearchResult();
+//		
+//		Store houston = new Store();
+//		houston.setKey("07922");
+//		houston.setAddress("10275 North Fwy");
+//		houston.setCity("Houston");
+//		houston.setState("TX");
+//		houston.setZipCode("77037");
+//		
+//		Store manassas = new Store();
+//		manassas.setKey("07980");
+//		manassas.setAddress("8000 Stream Walk Ln");
+//		manassas.setCity("Manassas");
+//		manassas.setState("VA");
+//		manassas.setZipCode("20109");
+//		
+//		List<Store> storeList = new ArrayList<Store>();
+//		storeList.add(houston);
+//		storeList.add(manassas);
+//		
+//		results.setStatusCode(0);
+//		results.setStatus("Success");
+//		results.setCount(2);
+//		results.setStores(storeList);
+		
+		return results;
 	}
 }
