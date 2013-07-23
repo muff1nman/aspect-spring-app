@@ -54,12 +54,24 @@
 			<artifactId>jackson-mapper-asl</artifactId>
 			<version>1.9.4</version>
 		</dependency>
-  </dependencies>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.7.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>3.0.5.RELEASE</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+	</dependencies>
 
-  <profiles>
-    <profile>
-      <id>localDeploy</id>
-      <activation>
+	<profiles>
+		<profile>
+			<id>localDeploy</id>
+			<activation>
         <property>
           <name>depenv</name>
           <value>local</value>
