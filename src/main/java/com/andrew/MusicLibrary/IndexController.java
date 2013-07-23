@@ -2,12 +2,12 @@ package com.andrew.MusicLibrary;
 
 import java.io.IOException;
 import java.io.Writer;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -20,14 +20,21 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class IndexController {
 	
+	@Resource
+	private RandomService randomService;
+	
 	public static final String NEW_LINES = "\n\n\n\n";
 	public static final String DIVIDER = "\n===========================================\n";
 	
 	@RequestMapping("/")
 	public String homePage(Model model, HttpServletRequest request, HttpServletResponse response) throws IOException {
+		
+		
 		//List<String> headersList = new ArrayList<String>();
 		List<String> requestAttributes = Collections.list(request.getAttributeNames());
 		Writer w = response.getWriter();
+		
+		w.write("Random number: " + randomService.doRandom());
 		
 		w.write(NEW_LINES);
 		w.write("ServletRequest Attributes");
